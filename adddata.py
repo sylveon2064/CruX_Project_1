@@ -15,8 +15,6 @@ def addData(mp, ds, sitename, siteurl, email, username):
 
     mk = computeMasterKey(mp, ds)
 
-    encrypted = aesencrypter.encrypt(key=mk, source=password, keyType="bytes")
-
     #Add to database
     db = database.database()
     cursor = db.cursor()
