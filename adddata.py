@@ -18,7 +18,7 @@ def addData(mp, ds, sitename, siteurl, email, username):
     encrypted = aesencrypter.encrypt(key=mk, source=password, keyType="bytes")
 
     #Add to database
-    db = database()
+    db = database.database()
     cursor = db.cursor()
     query = "INSERT INTO pm.entries(sitename varchar(100), siteurl varchar(100), email varchar(50), username(varchar(50)), password varchar(50)) values ('sitename', 'siteurl', 'email', 'username', 'encrypted')"
     db.commit()
