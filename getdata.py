@@ -12,7 +12,7 @@ def computeMasterKey(mp, ds):
     key = PBKDF2(password, salt, 32, count=10000, hmac_hash_module=SHA512)
 
 def retrieveEntries(mp, ds, search, decryptPassword = False):
-    db = database()
+    db = database.database()
     cursor = db.cursor()
 
     query = ""
