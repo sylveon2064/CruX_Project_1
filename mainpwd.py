@@ -28,7 +28,7 @@ def config():
 
     print("Table 'secrets' created")
 
-    query = "CREATE TABLE pm.entries (name varchar(100), url varchar(100), email varchar(50), username varchar(50), password varchar(50))"
+    query = "CREATE TABLE pm.entries (sitename varchar(100), siteurl varchar(100), email varchar(50), username varchar(50), password varchar(50))"
     res = cursor.execute(query)
 
     print("Table entries created")
