@@ -8,8 +8,9 @@ from database import database
 def generateDeviceSecret(length=10):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k = length))
 
+
 def config():
-    db=database()
+    db = database()
     cursor = db.cursor()
 
     print("Creating new config")
@@ -22,12 +23,12 @@ def config():
     
     print("Database 'pm' created") 
 
-    query = "CREATE TABLE pm.secrets (masterkey_hash varchar(255), device_key varchar(255))"
+    query = "CREATE TABLE pm.secrets (masterkey_hash varchar(255), device_key varchar(100))"
     res = cursor.execute(query)
 
     print("Table 'secrets' created")
 
-    query = "CREATE TABLE pm.entries (siteurl varchar(100) primary key, email varchar(50), username varchar(50), password varchar(50))"
+    query = "CREATE TABLE pm.entries (name varchar(100), url varchar(100), email varchar(50), username varchar(50), password varchar(50))"
     res = cursor.execute(query)
 
     print("Table entries created")
@@ -38,20 +39,26 @@ def config():
             break
         else :
             print("Please try again")
-    
-    # Hashing the Master Password
     hashed_mp = hashlib.sha256(mp.encode()).hexdigest()
     print("Main Password hashed successfully...")
     
-    #Generating a Device Key
+
     ds = generateDeviceSecret()
     print("device key generated")
-    query = "INSERT INTO pm.secrets (masterkey_hash, device_key) values ('hashed_mp', 'ds')"
+    query = "INSERT INTO pm.secrets (masterkey_hash, device_key) values (%s, %s)"
+    val = (hashed_mp, ds)
+    cursor.execute(query, val)
     db.commit()
-    print("master password saved successfully")
+    print("master password saved successfully")        
+    
     db.close()
- 
 config()
+
+
+
+
+ 
+
 
 
 
