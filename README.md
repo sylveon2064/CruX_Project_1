@@ -30,17 +30,7 @@ workbench although it will erase all your previously stored data).
 
      In this way, you will be able to add data to the program.
 
- ii) Extracting All Data -
- 
-                            (1)Run the file pm.py in terminal
-
-                            (2)Input >python pm.py e
-
-                            (3)Input the Master Password
-
-      In this way, you can extract all the data stored in the Password Manager.
-
-iii) Extracting Data with a specific Site Name -
+ ii) Extracting Data with a specific Site Name -
 
                                                    (1)Run the file pm.py in terminal
 
@@ -50,7 +40,7 @@ iii) Extracting Data with a specific Site Name -
 
       In this way, you can view all the data stored for one particular Site Name.
 
- iv) Copying the Password - 
+iii) Copying the Password - 
  
                            (1)Run the file pm.py in terminal
 
