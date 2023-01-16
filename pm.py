@@ -28,7 +28,11 @@ def inputAndValidateMasterPassword():
 	cursor.execute(query)
 
 	result = cursor.fetchall()
-	print(result[1])
+	if hashed_mp != result[0]:
+		printc("[red][!] WRONG! [/red]")
+		return None
+
+	return [mp,result[1]]
 
 
 def main():
