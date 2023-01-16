@@ -22,7 +22,7 @@ def config():
     
     print("Database 'pm' created") 
 
-    query = "CREATE TABLE pm.secrets (masterkey_hash varchar(100), device_key varchar(100))"
+    query = "CREATE TABLE pm.secrets (masterkey_hash varchar(255), device_key varchar(255))"
     res = cursor.execute(query)
 
     print("Table 'secrets' created")
